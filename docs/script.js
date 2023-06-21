@@ -5,9 +5,9 @@ function generatePassword() {
 		let prompt_canceled = password_length === null ? true : false // Check if cancel was pressed
 		password_length = parseInt(password_length) // Convert to a number
 		while( !prompt_canceled && ( Number.isNaN(password_length) || (password_length < 8) || (password_length > 128))){
-			if(Number.isNaN(password_length)){
+			if(Number.isNaN(password_length)){ // If the user didn't put in a number
 				password_length = prompt("Password length from 8 to 128 characters.\nInput has to be a number.")
-			}else if((password_length < 8) || (password_length > 128)){
+			}else if((password_length < 8) || (password_length > 128)){ // If the number isn't in range.
 				password_length = prompt("Password length from 8 to 128 characters.\nInput has to be from 8 to 128.")
 			}
 			prompt_canceled = password_length === null ? true : false // Check if cancel was pressed
@@ -28,14 +28,14 @@ function generatePassword() {
 			uppercase = confirm("Include uppercase characters?")
 			number = confirm("Include numbers?")
 			special = confirm("Include special characters?")
-			if(!lowercase && !uppercase && !number && !special){ // If no confirmation then tell the user.
+			if(!lowercase && !uppercase && !number && !special){ // If not at least one character types then tell the user.
 				alert("You must select at least one.\nLowercase, uppercase, numbers, and/or special characters.")
 			}
 		}while(!lowercase && !uppercase && !number && !special)
 
 	// Generate password
 		const lowercase_chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-		const uppercase_chars = lowercase_chars.map(letter => letter.toUpperCase())
+		const uppercase_chars = lowercase_chars.map(letter => letter.toUpperCase()) // Converts lowercase to uppercase
 		const number_chars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 		const special_chars = [
 			"~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\",
