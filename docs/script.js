@@ -24,10 +24,10 @@ function generatePassword() {
 		let number = false
 		let special = false
 		do{
-			lowercase = confirm("Include lowercase characters?")
-			uppercase = confirm("Include uppercase characters?")
-			number = confirm("Include numbers?")
-			special = confirm("Include special characters?")
+			lowercase = confirm('Click "OK" to include lowercase characters.\nClick "Cancel" to not include lowercase characters.')
+			uppercase = confirm('Click "OK" to include uppercase characters.\nClick "Cancel" to not include uppercase characters.')
+			number = confirm('Click "OK" to include numbers.\nClick "Cancel" to not include numbers.')
+			special = confirm('Click "OK" to include special characters.\nClick "Cancel" to not special characters.')
 			if(!lowercase && !uppercase && !number && !special){ // If not at least one character types then tell the user.
 				alert("You must select at least one.\nLowercase, uppercase, numbers, and/or special characters.")
 			}
